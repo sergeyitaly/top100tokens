@@ -1,0 +1,35 @@
+find . -type f -name "*.py" | sort
+
+# Solana Top Tokens Webhook Service
+
+A FastAPI service that provides real-time data for the top 100 Solana tokens via webhooks.
+
+## Features
+
+- Fetches real-time data for top 100 Solana tokens
+- Updates every 5 minutes
+- Webhook support for real-time notifications
+- REST API for manual queries
+- Docker support
+
+## API Endpoints
+
+- `GET /` - Service info
+- `GET /tokens` - Get current top tokens
+- `GET /tokens/webhook-payload` - Get webhook payload format
+- `POST /webhooks/register` - Register a webhook URL
+- `DELETE /webhooks/unregister` - Unregister a webhook URL
+- `GET /webhooks/list` - List registered webhooks
+- `GET /health` - Health check
+
+## Running the Service
+
+### Using Docker
+```bash
+docker build -t solana-tokens-webhook .
+docker run -p 8000:8000 solana-tokens-webhook
+
+python3.13 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
