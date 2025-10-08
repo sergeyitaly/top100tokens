@@ -11,13 +11,13 @@ primary_region = "fra"
   force_https = true
   
   [[http_service.checks]]
-    interval = 10000
+    interval = "10s"
     grace_period = "5s"
     method = "GET"
     path = "/health"
-    timeout = 2000
+    timeout = "2s"
 
-[vm]
-  memory = "1gb"
+[[vm]]
+  memory = "1024"
   cpu_kind = "shared"
   cpus = 1
